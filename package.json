@@ -1,0 +1,16 @@
+{
+  "name": "bessoftware",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Bes 软件的作品入口：从热爱出发，做值得分享的软件。",
+  "type": "module",
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "dev": "node scripts/serve.mjs",
+    "build": "node scripts/build.mjs",
+    "test": "node tests/browser-smoke.mjs"
+  },
+  "devDependencies": {
+    "playwright": "1.62.1"
+  }
+}

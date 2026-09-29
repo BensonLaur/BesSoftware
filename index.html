@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="从热爱出发，做值得分享的软件。探索 Benson 的 BesLyric、Besktop、BesFuel 与 BesMapLab，以及作品背后的创作故事。">
+  <meta name="theme-color" content="#f7f7f0" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#20251f" media="(prefers-color-scheme: dark)">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:site_name" content="Bes 软件">
+  <meta property="og:title" content="Bes 软件 · 从热爱出发，做值得分享的软件">
+  <meta property="og:description" content="源于生活里的需要，也留一点好奇和玩心。把想法认真做出来，分享给刚好需要的你。">
+  <title>Bes 软件 · 从热爱出发，做值得分享的软件</title>
+  <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./styles.css">
+  <script defer src="./assets/vendor/lucide.min.js"></script>
+  <script defer src="./assets/vendor/d3-array.min.js"></script>
+  <script defer src="./assets/vendor/d3-geo.min.js"></script>
+  <script defer src="./assets/vendor/topojson-client.min.js"></script>
+  <script defer src="./app.js"></script>
+  <script defer src="./map.js"></script>
+</head>
+<body>
+<a class="bes-skip" href="#bes-main">跳到作品内容</a>
+<div id="bes-software" lang="zh-CN" aria-label="Bes 软件作品集">
+  <header class="bes-header">
+    <a class="bes-wordmark" href="#bes-home" aria-label="Bes 软件首页"><span>Bes</span> 软件<span class="bes-dot" aria-hidden="true">.</span></a>
+    <nav aria-label="主导航">
+      <a href="#bes-works">作品</a>
+      <a href="#bes-story">创作手记</a>
+      <a href="https://github.com/BensonLaur" target="_blank" rel="noopener noreferrer">GitHub <i data-lucide="arrow-up-right" aria-hidden="true"></i></a>
+    </nav>
+  </header>
+
+  <main id="bes-main">
+    <section class="bes-hero" id="bes-home" aria-label="品牌主张">
+      <div class="bes-eyebrow"><span class="bes-seed" aria-hidden="true"></span> BENSON 的软件作品集 <span class="bes-since">自 2017 年</span></div>
+      <h1><span data-headline-first>从热爱出发，</span><br><span class="bes-emphasis" data-headline-second>做值得分享的软件。</span></h1>
+      <p class="bes-intro">源于生活里的需要，也留一点好奇和玩心。<br>把想法认真做出来，分享给刚好需要的你。</p>
+      <div class="bes-hero-bottom">
+        <a class="bes-primary" href="#bes-works">逛逛我的作品 <i data-lucide="arrow-down" aria-hidden="true"></i></a>
+        <span class="bes-personal">喜欢，所以动手。<br><span>分享，让它继续生长。</span></span>
+      </div>
+    </section>
+
+    <section class="bes-gallery" id="bes-works" aria-label="软件作品">
+      <div class="bes-section-heading"><h2>热爱，慢慢有了模样。</h2><span>每个小窗口，都可以玩一下</span></div>
+      <div class="bes-grid">
+        <article class="bes-work bes-lyric">
+          <div class="bes-work-top"><span class="bes-topic"><i data-lucide="music-2" aria-hidden="true"></i> 给喜欢的音乐</span><span class="bes-work-index">01</span></div>
+          <div class="bes-playground bes-lyric-play">
+            <div class="bes-lyric-lines" aria-label="原创示例歌词">
+              <div class="is-current"><span data-stamp="0">[待标记]</span><span>把喜欢写成一句</span></div>
+              <div><span data-stamp="1">[待标记]</span><span>把想法做成一件</span></div>
+              <div><span data-stamp="2">[待标记]</span><span>分享给刚好需要的你</span></div>
+            </div>
+            <div class="bes-play-controls"><button type="button" data-mark><i data-lucide="arrow-up" aria-hidden="true"></i> 标记这一句</button><span class="bes-demo-note" data-lyric-status aria-live="polite">从第一句开始</span></div>
+          </div>
+          <div class="bes-work-title"><h3>BesLyric</h3><span class="bes-platform">Windows · macOS · Linux</span></div>
+          <p class="bes-description">为喜欢的歌，做好每一句歌词的时间轴。</p>
+          <div class="bes-work-foot"><span>LRC 歌词制作</span><a href="https://github.com/BesLyric-for-X/BesLyric-for-X" target="_blank" rel="noopener noreferrer">认识 BesLyric <i data-lucide="arrow-up-right" aria-hidden="true"></i></a></div>
+        </article>
+
+        <article class="bes-work bes-desktop">
+          <div class="bes-work-top"><span class="bes-topic"><i data-lucide="sparkles" aria-hidden="true"></i> 给日常一点玩心</span><span class="bes-work-index">02</span></div>
+          <div class="bes-playground bes-desktop-play">
+            <div class="bes-stage" aria-hidden="true">
+              <div class="bes-window-outline"><span></span><span></span><span></span></div>
+              <div class="bes-character"><div class="bes-character-face"><i data-lucide="folder" aria-hidden="true"></i></div><span class="bes-leg bes-left-leg"></span><span class="bes-leg bes-right-leg"></span></div>
+              <span class="bes-speech" data-bes-speech>桌面也可以有点小脾气。</span>
+            </div>
+            <div class="bes-play-controls"><button type="button" data-desktop-play><i data-lucide="mouse-pointer-2" aria-hidden="true"></i> 让图标动起来</button><span class="bes-demo-note" data-desktop-status aria-live="polite">首页小彩蛋</span></div>
+          </div>
+          <div class="bes-work-title"><h3>Besktop</h3><span class="bes-platform">Windows · 预览版</span></div>
+          <p class="bes-description">当桌面图标长出手脚，熟悉的日常就有了新乐趣。</p>
+          <div class="bes-work-foot"><span>桌面趣味实验</span><a href="https://github.com/BensonLaur/Besktop" target="_blank" rel="noopener noreferrer">认识 Besktop <i data-lucide="arrow-up-right" aria-hidden="true"></i></a></div>
+        </article>
+
+        <article class="bes-work bes-fuel">
+          <div class="bes-work-top"><span class="bes-topic"><i data-lucide="fuel" aria-hidden="true"></i> 给生活一点实用</span><span class="bes-work-index">03</span></div>
+          <div class="bes-playground bes-fuel-play">
+            <div class="bes-trip-summary"><div><label for="bes-distance">这次想开多远？</label><strong><output for="bes-distance" data-distance>100</output><small> km</small></strong></div><div class="bes-trip-cost"><span>预计油费</span><strong>¥<output data-cost aria-live="polite">52.50</output></strong></div></div>
+            <input id="bes-distance" aria-label="行驶距离，公里" type="range" min="20" max="500" step="10" value="100">
+            <p class="bes-demo-note">演示参数：7 L/100 km · ¥7.50/L，非当前油价</p>
+          </div>
+          <div class="bes-work-title"><h3>BesFuel</h3><span class="bes-platform">打开网页即可使用</span></div>
+          <p class="bes-description">查油价、看调价、算油费，让每次出行更心中有数。</p>
+          <div class="bes-work-foot"><span>油价与出行助手</span><a href="https://bensonlaur.github.io/BesFuel/" target="_blank" rel="noopener noreferrer">打开 BesFuel <i data-lucide="arrow-up-right" aria-hidden="true"></i></a></div>
+        </article>
+
+        <article class="bes-work bes-map">
+          <div class="bes-work-top"><span class="bes-topic"><i data-lucide="globe-2" aria-hidden="true"></i> 给好奇心一个出口</span><span class="bes-work-index">04</span></div>
+          <div class="bes-playground bes-map-play">
+            <svg class="bes-map-svg" role="img" aria-label="同一份世界地理数据在不同地图投影中的形状"><title>世界地图投影示意</title><path class="bes-ocean"></path><path class="bes-land"></path><path class="bes-graticule"></path></svg>
+            <div class="bes-play-controls"><button type="button" data-map-switch disabled><i data-lucide="repeat-2" aria-hidden="true"></i> 换个视角</button><span class="bes-demo-note" data-map-status aria-live="polite">载入地图…</span></div>
+          </div>
+          <div class="bes-work-title"><h3>BesMapLab</h3><span class="bes-platform">打开网页即可使用</span></div>
+          <p class="bes-description">同一个世界，换一种投影，会是什么样？</p>
+          <div class="bes-work-foot"><span>交互地图探索</span><a href="https://bensonlaur.github.io/BesMapLab/" target="_blank" rel="noopener noreferrer">打开 BesMapLab <i data-lucide="arrow-up-right" aria-hidden="true"></i></a></div>
+        </article>
+      </div>
+      <p class="bes-gallery-note">这里是作品的小小体验，完整功能请进入各作品。</p>
+    </section>
+
+    <section class="bes-story" id="bes-story" aria-label="创作理念与真实经历">
+      <div class="bes-story-heading"><span class="bes-eyebrow">作品背后</span><h2>先有一个<br>“我想试试”。</h2><span class="bes-signature">Benson Laur</span></div>
+      <div class="bes-story-content">
+        <p class="bes-story-lead">我享受把真实的需要，做成用得上、也让人喜欢的软件。<br>当它也帮到了别人，这份热爱就有了更多意义。</p>
+        <details open>
+          <summary>第一段故事：从给喜欢的歌做歌词开始 <i data-lucide="chevron-down" aria-hidden="true"></i></summary>
+          <div class="bes-story-body"><p>2017 年，我想要一个顺手的网易云音乐歌词制作工具，也恰好需要学习 SOUI。于是，BesLyric 诞生了。</p><p>分享之后，有人喜欢，有人反馈，也有人希望它能运行在更多平台。后来，我又花了三个月的业余时间，用 Qt 做出了跨平台的 BesLyric-for-X。</p></div>
+        </details>
+        <div class="bes-beliefs"><span><i data-lucide="heart" aria-hidden="true"></i> 从真实的热爱出发</span><span><i data-lucide="sprout" aria-hidden="true"></i> 在使用与反馈中成长</span></div>
+        <p class="bes-sustain">也希望这些有价值的作品，能够支撑持续的创作，让热爱走得更远。</p>
+      </div>
+    </section>
+    <section class="bes-support" id="bes-support" aria-labelledby="bes-support-title">
+      <div class="bes-support-invitation">
+        <div class="bes-garden">
+          <div class="bes-plant-art" role="img" aria-label="等待雨水的小芽" data-growth="0">
+            <span class="bes-plant-halo" aria-hidden="true"></span>
+            <canvas class="bes-tree-canvas" width="320" height="352" aria-hidden="true"></canvas>
+            <span class="bes-tree-palette" aria-hidden="true" hidden><span data-tree-color="outline"></span><span data-tree-color="leaf"></span><span data-tree-color="light"></span><span data-tree-color="trunk"></span><span data-tree-color="soil"></span></span>
+            <span class="bes-water bes-water-one" aria-hidden="true"><i data-lucide="droplet"></i></span>
+            <span class="bes-water bes-water-two" aria-hidden="true"><i data-lucide="droplet"></i></span>
+            <span class="bes-water bes-water-three" aria-hidden="true"><i data-lucide="droplet"></i></span>
+          </div>
+          <span class="bes-garden-hint">热爱，慢慢生长。</span>
+        </div>
+        <div class="bes-support-copy">
+          <h2 id="bes-support-title">给热爱浇点水</h2>
+          <p>如果这些作品帮到了你，或让你会心一笑，<br>欢迎支持我继续打磨它们，也尝试一些新想法。</p>
+          <span class="bes-garden-response" data-plant-response aria-live="polite">使用、分享和认真反馈，也都是珍贵的支持。</span>
+        </div>
+        <button class="bes-support-trigger" type="button" data-open-support aria-expanded="false" aria-controls="bes-support-panel"><i data-lucide="droplets" aria-hidden="true"></i><span data-support-action>自愿打赏</span></button>
+      </div>
+      <div class="bes-support-panel" id="bes-support-panel" hidden>
+        <div class="bes-support-panel-head"><span>支持 Bes 软件的持续创作</span><button type="button" data-close-support aria-label="收起打赏入口"><i data-lucide="x" aria-hidden="true"></i> 收起</button></div>
+        <div class="bes-support-panel-body">
+          <div class="bes-support-options">
+            <h3>一份心意，随心就好。</h3>
+            <p class="bes-support-note">感谢你愿意支持我的创作。<br>打赏金额由你决定，用于软件的开发与维护。</p>
+            <div class="bes-payment-methods" aria-label="选择收款方式">
+              <button type="button" data-payment-method="wechat" aria-pressed="true">微信</button>
+              <button type="button" data-payment-method="alipay" aria-pressed="false">支付宝</button>
+            </div>
+            <p class="bes-payment-payee" data-payment-payee aria-live="polite">微信 · Benson(**城)</p>
+            <p class="bes-support-instruction">用手机扫码，或保存原图后在支付应用中从相册识别。付款前请核对收款人。</p>
+            <a class="bes-payment-original" data-payment-original href="./assets/support/wechat.png" target="_blank" rel="noopener noreferrer">查看 / 保存原图 <i data-lucide="arrow-up-right" aria-hidden="true"></i></a>
+          </div>
+          <div class="bes-payment-picture"><img data-payment-image width="1266" height="1749" alt="微信收款原图，收款主体 Benson(**城)"></div>
+        </div>
+      </div>
+    </section>
+    <noscript><p class="bes-noscript">互动体验需要启用 JavaScript。作品链接仍可直接使用；你也可以查看 <a href="./assets/support/wechat.png">微信收款码</a> 或 <a href="./assets/support/alipay.png">支付宝收款码</a>。</p></noscript>
+  </main>
+  <footer class="bes-footer"><span>Bes 软件 · 从一个想法，到一次分享。</span><a href="https://github.com/BensonLaur" target="_blank" rel="noopener noreferrer">和我聊聊 <i data-lucide="arrow-up-right" aria-hidden="true"></i></a></footer>
+</div>
+</body>
+</html>
