@@ -2,7 +2,7 @@
 
 **从热爱出发，做值得分享的软件。**
 
-Bes 系列软件的个人作品入口，包含 BesLyric、Besktop、BesFuel、BesMapLab，以及作品背后的创作故事。
+Bes 系列软件的个人作品入口，包含 BesLyric、Besktop、BesFuel、BesMapLab、BesTools，以及作品背后的创作故事。
 
 ## 本地预览
 
@@ -20,6 +20,7 @@ npm run dev
 ## 页面内容
 
 - 作品小体验：歌词打轴、桌面图标动画、油费估算、地图投影切换。
+- BesTools：个人顺手工具集入口，可直接进入独立的随机密码生成器。
 - 「热爱，慢慢有了模样。」不依赖作品数量，便于继续增加软件。
 - 创作手记：BesLyric 从个人需求、学习到分享、跨平台的真实经历。
 - 自愿支持：完整微信、支付宝收款图；展开时落雨并长成大树，收起时逆向变回小芽。
@@ -38,7 +39,7 @@ npm test
 
 Windows 默认使用已安装的 Microsoft Edge。其他环境可先执行 `npx playwright install chromium`，再使用空的 `BES_BROWSER_CHANNEL` 环境变量选择 Playwright Chromium。也可指定 `BES_BROWSER_CHANNEL=chrome`。
 
-浏览器测试会检查页面在 `/BesSoftware/` 子路径下的资源、四个体验、打赏图片、可逆动画、快速切换、320px 窄屏和减少动态效果；截图保存在不提交的 `test-results/`。
+浏览器测试会检查页面在 `/BesSoftware/` 子路径下的资源、四个体验、BesTools 入口、打赏图片、可逆动画、快速切换、320px 窄屏和减少动态效果；截图保存在不提交的 `test-results/`。
 
 ## 构建与发布
 

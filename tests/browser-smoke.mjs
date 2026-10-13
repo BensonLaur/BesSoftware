@@ -37,7 +37,9 @@ try {
   await page.goto(url, { waitUntil: 'networkidle' });
   await page.locator('[data-map-switch]:enabled').waitFor();
   assert.match(await page.title(), /Bes 软件/);
-  assert.equal(await page.locator('.bes-work').count(), 4);
+  assert.equal(await page.locator('.bes-work').count(), 5);
+  assert.equal(await page.locator('.bes-tools .bes-work-foot a').getAttribute('href'), 'https://bensonlaur.github.io/BesTools/');
+  assert.equal(await page.locator('.bes-tool-launch').getAttribute('href'), 'https://bensonlaur.github.io/BesTools/tools/password/');
   assert.ok(await page.locator('svg.lucide').count() > 10);
   assert.match(await page.locator('.bes-section-heading h2').innerText(), /热爱，慢慢有了模样/);
   assert.equal(await page.locator('#bes-support-panel').isVisible(), false);
@@ -140,7 +142,7 @@ try {
   assert.deepEqual(externalRequests, []);
   assert.deepEqual(badResponses, []);
   assert.deepEqual(errors, []);
-  const report = { basePath: '/BesSoftware/', widths, allFourExperiences: true, reversibleTree: true, originalPaymentImages: true, touch: true, reducedMotion: true, runtimeErrors: errors, externalRequests, badResponses };
+  const report = { basePath: '/BesSoftware/', widths, allFourExperiences: true, besToolsEntry: true, reversibleTree: true, originalPaymentImages: true, touch: true, reducedMotion: true, runtimeErrors: errors, externalRequests, badResponses };
   await writeFile(path.join(resultsDirectory, 'report.json'), JSON.stringify(report, null, 2).replace(/\n/g, '\r\n') + '\r\n');
   console.log('浏览器验证通过：四个体验、可逆生长、收款图、子路径、深浅色、键盘和手机布局。');
 } finally {

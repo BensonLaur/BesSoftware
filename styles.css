@@ -54,6 +54,12 @@ button:disabled { cursor: default; opacity: .65; }
 #bes-software .bes-desktop { --bes-product: light-dark(#97702a, #e5c77e); --bes-tint: light-dark(#fcf5e6, #393529); }
 #bes-software .bes-fuel { --bes-product: light-dark(#447349, #b3d3a3); --bes-tint: light-dark(#f0f6e9, #303a2b); }
 #bes-software .bes-map { --bes-product: light-dark(#366685, #a8cce4); --bes-tint: light-dark(#eaf3f8, #2b3740); }
+#bes-software .bes-tools { --bes-product: light-dark(#326345, #b8db9b); --bes-tint: light-dark(#edf2e7, #303d29); }
+#bes-software .bes-tool-preview { display: flex; align-items: center; gap: 15px; padding-top: 19px; color: var(--bes-product); }
+#bes-software .bes-tool-preview > svg.lucide { width: 35px; height: 35px; }
+#bes-software .bes-tool-preview strong { display: block; font-size: 16px; font-weight: 600; }
+#bes-software .bes-tool-preview span { display: block; margin-top: 6px; font-size: 11px; color: var(--bes-muted); }
+#bes-software .bes-tool-launch { display: inline-flex; align-items: center; gap: 5px; background: var(--bes-panel); border: 1px solid var(--bes-rule); border-radius: 6px; padding: 7px 8px; font-size: 11px; min-height: 32px; }
 #bes-software .bes-work-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 13px; font-size: 12px; }
 #bes-software .bes-topic { display: inline-flex; align-items: center; gap: 7px; color: var(--bes-product); }
 #bes-software .bes-work-index { color: var(--bes-muted); font-size: 11px; font-variant-numeric: tabular-nums; }
