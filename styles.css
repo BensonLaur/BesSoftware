@@ -56,7 +56,6 @@ button:disabled { cursor: default; opacity: .65; }
 #bes-software .bes-map { --bes-product: light-dark(#366685, #a8cce4); --bes-tint: light-dark(#eaf3f8, #2b3740); }
 #bes-software .bes-tools { --bes-product: light-dark(#326345, #b8db9b); --bes-tint: light-dark(#edf2e7, #303d29); }
 #bes-software .bes-ledger { --bes-product: light-dark(#354f73, #b8cce7); --bes-tint: light-dark(#e9eef5, #2c3645); --bes-ledger-orange: light-dark(#a95226, #f4ae85); }
-#bes-software .bes-ledger .bes-work-title h3 small { font-size: 12px; font-weight: 400; letter-spacing: 0; margin-left: 4px; color: var(--bes-muted); }
 #bes-software .bes-ledger-scene { min-height: 108px; color: var(--bes-product); }
 #bes-software .bes-ledger-caption { display: flex; align-items: center; justify-content: space-between; gap: 8px; font-size: 11px; }
 #bes-software .bes-ledger-caption > span { display: inline-flex; align-items: center; gap: 6px; }
@@ -91,6 +90,7 @@ button:disabled { cursor: default; opacity: .65; }
 #bes-software .bes-lyric-lines > div.is-current { color: var(--bes-product); font-weight: 600; }
 #bes-software .bes-work-title { display: flex; align-items: baseline; justify-content: space-between; flex-wrap: wrap; gap: 3px 8px; margin-top: 17px; }
 #bes-software .bes-work-title h3 { font-size: 21px; font-weight: 650; letter-spacing: -0.7px; }
+#bes-software .bes-work-title h3 small { font-size: 12px; font-weight: 400; letter-spacing: 0; margin-left: 4px; color: var(--bes-muted); white-space: nowrap; }
 #bes-software .bes-platform { color: var(--bes-muted); font-size: 11px; }
 #bes-software .bes-description { font-size: 12px; line-height: 1.8; margin-top: 7px; min-height: 43px; }
 #bes-software .bes-work-foot { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 4px; border-top: 1px solid var(--bes-rule); margin-top: 9px; padding-top: 7px; font-size: 11px; }

@@ -2,7 +2,7 @@
 
 **从热爱出发，做值得分享的软件。**
 
-Bes 系列软件的个人作品入口，包含 BesLyric、Besktop、BesFuel、BesMapLab、BesTools、BesLedger，以及作品背后的创作故事。
+Bes 系列软件的个人作品入口，包含 BesLyric（Bes歌词制作）、Besktop（Bes桌趣）、BesFuel（Bes油价）、BesMapLab（Bes地图）、BesTools（Bes工具）、BesLedger（Bes记账），以及作品背后的创作故事。
 
 ## 本地预览
 

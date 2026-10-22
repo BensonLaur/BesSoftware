@@ -9,6 +9,7 @@
 - 这是 Bes 系列软件的静态介绍入口，目标部署平台为 GitHub Pages。
 - 保留已经确认的个人作品陈列室设计、创作故事、暖白与绿色调。
 - 作品区域文案不绑定作品数量；当前包含 BesLyric、Besktop、BesFuel、BesMapLab、BesTools、BesLedger。
+- 作品标题在英文名旁统一展示中文名：BesLyric / Bes歌词制作、Besktop / Bes桌趣、BesFuel / Bes油价、BesMapLab / Bes地图、BesTools / Bes工具、BesLedger / Bes记账。
 - BesLedger 当前仅作开发预告，保留虚构短信小体验并显示“敬请期待”；用户决定开放前不提供网页使用或 Android 下载入口。
 - 收款图片完整保留，禁止裁剪、重绘或替换收款主体。
 - 打赏展开：落雨后，小芽逐步长成树；收起：沿同一生长进度逆向还原。快速切换需要取消旧任务并保持形态连续。
