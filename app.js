@@ -244,4 +244,50 @@
     }, 1300);
   });
   distance.addEventListener('input', renderFuel);
+
+  // 固定虚构样例仅说明录入流程，不接收真实短信，也不保存账目。
+  const ledgerPlay = select('.bes-ledger-play');
+  const ledgerFields = { amount: '¥18.50', category: '餐饮 · 早餐', account: '储蓄卡 · 1234', time: '10/23 08:15' };
+  const ledgerNames = Object.keys(ledgerFields);
+  let ledgerStep = 0;
+  let ledgerTimer;
+  function revealLedgerField() {
+    const name = ledgerNames[ledgerStep];
+    select('[data-ledger-value="' + name + '"]').textContent = ledgerFields[name];
+    select('[data-ledger-field="' + name + '"]').classList.add('is-recognized');
+    ledgerStep += 1;
+    if (ledgerStep === ledgerNames.length) {
+      ledgerPlay.dataset.ledgerState = 'ready';
+      select('[data-ledger-status]').textContent = '待核对 · 演示不保存';
+    }
+  }
+  function continueLedgerRecognition() {
+    revealLedgerField();
+    if (ledgerStep < ledgerNames.length) ledgerTimer = setTimeout(continueLedgerRecognition, 230);
+  }
+  function finishLedgerRecognition() {
+    clearTimeout(ledgerTimer);
+    while (ledgerStep < ledgerNames.length) revealLedgerField();
+  }
+  select('[data-ledger-recognize]').addEventListener('click', () => {
+    // 重播先取消旧任务，避免快速点击后上一轮结果混进新的短信画面。
+    clearTimeout(ledgerTimer);
+    const reset = ledgerPlay.dataset.ledgerState !== 'sms';
+    ledgerPlay.dataset.ledgerState = reset ? 'sms' : 'reading';
+    select('[data-ledger-sms]').hidden = !reset;
+    select('[data-ledger-bill]').hidden = reset;
+    select('[data-ledger-action]').textContent = reset ? '识别成账单' : '再体验一次';
+    select('[data-ledger-status]').textContent = reset ? '虚构演示 · 不保存' : '正在整理虚构短信…';
+    ledgerStep = 0;
+    for (const name of ledgerNames) {
+      select('[data-ledger-value="' + name + '"]').textContent = '—';
+      select('[data-ledger-field="' + name + '"]').classList.remove('is-recognized');
+    }
+    if (reset) return;
+    if (reducedMotion.matches) finishLedgerRecognition();
+    else ledgerTimer = setTimeout(continueLedgerRecognition, 120);
+  });
+  reducedMotion.addEventListener('change', () => {
+    if (reducedMotion.matches && ledgerPlay.dataset.ledgerState === 'reading') finishLedgerRecognition();
+  });
 })();

@@ -37,9 +37,11 @@ try {
   await page.goto(url, { waitUntil: 'networkidle' });
   await page.locator('[data-map-switch]:enabled').waitFor();
   assert.match(await page.title(), /Bes 软件/);
-  assert.equal(await page.locator('.bes-work').count(), 5);
+  assert.equal(await page.locator('.bes-work').count(), 6);
   assert.equal(await page.locator('.bes-tools .bes-work-foot a').getAttribute('href'), 'https://bensonlaur.github.io/BesTools/');
   assert.equal(await page.locator('.bes-tool-launch').getAttribute('href'), 'https://bensonlaur.github.io/BesTools/tools/password/');
+  assert.equal(await page.locator('.bes-ledger a').count(), 0);
+  assert.equal(await page.locator('.bes-ledger .bes-coming-soon').innerText(), '敬请期待');
   assert.ok(await page.locator('svg.lucide').count() > 10);
   assert.match(await page.locator('.bes-section-heading h2').innerText(), /热爱，慢慢有了模样/);
   assert.equal(await page.locator('#bes-support-panel').isVisible(), false);
@@ -59,6 +61,29 @@ try {
   assert.notEqual(await page.locator('.bes-land').getAttribute('d'), firstMap);
   assert.match(await page.locator('[data-map-status]').innerText(), /Mercator/);
   await page.locator('[data-map-switch]').click();
+
+  const ledgerButton = page.locator('[data-ledger-recognize]');
+  const ledgerState = state => page.waitForFunction(value => document.querySelector('.bes-ledger-play').dataset.ledgerState === value, state);
+  await page.locator('.bes-ledger').screenshot({ path: path.join(resultsDirectory, 'ledger-sms.png') });
+  await ledgerButton.focus();
+  await ledgerButton.press('Enter');
+  await ledgerState('ready');
+  assert.equal(await page.locator('[data-ledger-value="amount"]').innerText(), '¥18.50');
+  assert.equal(await page.locator('[data-ledger-value="category"]').innerText(), '餐饮 · 早餐');
+  assert.equal(await page.locator('[data-ledger-value="account"]').innerText(), '储蓄卡 · 1234');
+  assert.equal(await page.locator('[data-ledger-value="time"]').innerText(), '10/23 08:15');
+  assert.match(await page.locator('[data-ledger-status]').innerText(), /待核对.*不保存/);
+  assert.equal(await page.locator('[data-ledger-sms]').isVisible(), false);
+  await page.locator('.bes-ledger').screenshot({ path: path.join(resultsDirectory, 'ledger-bill.png') });
+  // 动画开始后立即重置，旧任务不能再次填入字段或更改短信状态。
+  await ledgerButton.click();
+  await ledgerButton.click();
+  await ledgerButton.click();
+  await page.waitForTimeout(1000);
+  assert.equal(await page.locator('.bes-ledger-play').getAttribute('data-ledger-state'), 'sms');
+  assert.equal(await page.locator('[data-ledger-sms]').isVisible(), true);
+  assert.equal(await page.locator('[data-ledger-bill]').isVisible(), false);
+  assert.equal(await page.locator('[data-ledger-value="amount"]').textContent(), '—');
 
   const tree = page.locator('.bes-plant-art');
   const canvas = page.locator('.bes-tree-canvas');
@@ -108,17 +133,28 @@ try {
   const widths = [1024, 736, 608, 375, 320];
   for (const width of widths) {
     await page.setViewportSize({ width, height: 1000 });
-    await page.evaluate(() => new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve))));
-    assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth));
-    const overflow = await page.locator('#bes-software').evaluate(root => Array.from(root.querySelectorAll('*'))
-      .filter(element => element.clientWidth > 0 && element.scrollWidth > element.clientWidth + 2 && !['svg', 'path'].includes(element.tagName))
-      .map(element => element.className));
-    assert.deepEqual(overflow, [], 'Overflow at ' + width + 'px');
+    // 两种画面都验证布局，防止长短信或账户名称在窄屏被裁切。
+    for (let state = 0; state < 2; state += 1) {
+      if (state) {
+        await ledgerButton.click();
+        await ledgerState('ready');
+      }
+      await page.evaluate(() => new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve))));
+      assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth));
+      const overflow = await page.locator('#bes-software').evaluate(root => Array.from(root.querySelectorAll('*'))
+        .filter(element => element.clientWidth > 0 && element.scrollWidth > element.clientWidth + 2 && !['svg', 'path'].includes(element.tagName))
+        .map(element => element.className));
+      assert.deepEqual(overflow, [], 'Overflow at ' + width + 'px');
+    }
+    await ledgerButton.click();
   }
   await page.setViewportSize({ width: 1024, height: 900 });
   await page.evaluate(() => scrollTo(0, 0));
   await page.screenshot({ path: path.join(resultsDirectory, 'desktop.png'), fullPage: true });
   await page.emulateMedia({ colorScheme: 'dark', reducedMotion: 'reduce' });
+  await ledgerButton.click();
+  assert.equal(await page.locator('.bes-ledger-play').getAttribute('data-ledger-state'), 'ready');
+  await page.locator('.bes-ledger').screenshot({ path: path.join(resultsDirectory, 'ledger-dark.png') });
   await page.locator('[data-open-support]').click();
   assert.equal(await tree.getAttribute('data-growth'), '1.000');
   await page.locator('[data-close-support]').click();
@@ -129,6 +165,9 @@ try {
   const mobilePage = await mobile.newPage();
   mobilePage.on('pageerror', error => errors.push(error.message));
   await mobilePage.goto(url, { waitUntil: 'networkidle' });
+  await mobilePage.locator('[data-ledger-recognize]').tap();
+  assert.equal(await mobilePage.locator('.bes-ledger-play').getAttribute('data-ledger-state'), 'ready');
+  await mobilePage.locator('.bes-ledger').screenshot({ path: path.join(resultsDirectory, 'ledger-mobile.png') });
   await mobilePage.locator('[data-open-support]').tap();
   await mobilePage.locator('[data-payment-method="alipay"]').tap();
   await mobilePage.locator('[data-payment-image]').evaluate(element => element.decode());
@@ -142,9 +181,9 @@ try {
   assert.deepEqual(externalRequests, []);
   assert.deepEqual(badResponses, []);
   assert.deepEqual(errors, []);
-  const report = { basePath: '/BesSoftware/', widths, allFourExperiences: true, besToolsEntry: true, reversibleTree: true, originalPaymentImages: true, touch: true, reducedMotion: true, runtimeErrors: errors, externalRequests, badResponses };
+  const report = { basePath: '/BesSoftware/', widths, allFiveExperiences: true, besToolsEntry: true, besLedgerComingSoon: true, ledgerReplay: true, reversibleTree: true, originalPaymentImages: true, touch: true, reducedMotion: true, runtimeErrors: errors, externalRequests, badResponses };
   await writeFile(path.join(resultsDirectory, 'report.json'), JSON.stringify(report, null, 2).replace(/\n/g, '\r\n') + '\r\n');
-  console.log('浏览器验证通过：四个体验、可逆生长、收款图、子路径、深浅色、键盘和手机布局。');
+  console.log('浏览器验证通过：五个体验、账单演示重播、可逆生长、收款图、子路径、深浅色、键盘和手机布局。');
 } finally {
   await browser?.close();
   server.closeAllConnections();

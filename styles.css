@@ -55,6 +55,22 @@ button:disabled { cursor: default; opacity: .65; }
 #bes-software .bes-fuel { --bes-product: light-dark(#447349, #b3d3a3); --bes-tint: light-dark(#f0f6e9, #303a2b); }
 #bes-software .bes-map { --bes-product: light-dark(#366685, #a8cce4); --bes-tint: light-dark(#eaf3f8, #2b3740); }
 #bes-software .bes-tools { --bes-product: light-dark(#326345, #b8db9b); --bes-tint: light-dark(#edf2e7, #303d29); }
+#bes-software .bes-ledger { --bes-product: light-dark(#354f73, #b8cce7); --bes-tint: light-dark(#e9eef5, #2c3645); --bes-ledger-orange: light-dark(#a95226, #f4ae85); }
+#bes-software .bes-ledger .bes-work-title h3 small { font-size: 12px; font-weight: 400; letter-spacing: 0; margin-left: 4px; color: var(--bes-muted); }
+#bes-software .bes-ledger-scene { min-height: 108px; color: var(--bes-product); }
+#bes-software .bes-ledger-caption { display: flex; align-items: center; justify-content: space-between; gap: 8px; font-size: 11px; }
+#bes-software .bes-ledger-caption > span { display: inline-flex; align-items: center; gap: 6px; }
+#bes-software .bes-ledger-caption small { font-size: 10px; border: 1px solid color-mix(in srgb, var(--bes-product) 22%, transparent); border-radius: 4px; padding: 1px 5px; white-space: nowrap; }
+#bes-software [data-ledger-bill] .bes-ledger-caption small { color: var(--bes-ledger-orange); background: light-dark(#fae7dc, #4d3b32); border-color: light-dark(#edc9b4, #75553f); }
+#bes-software .bes-ledger-message { margin-top: 9px; font-size: 12px; line-height: 1.85; }
+#bes-software .bes-ledger-message b { font-weight: 500; }
+#bes-software .bes-ledger-message strong { color: var(--bes-ledger-orange); font-weight: 650; white-space: nowrap; }
+#bes-software .bes-ledger-fields { display: grid; grid-template-columns: 1fr 1fr; gap: 5px 12px; margin: 7px 0 0; }
+#bes-software .bes-ledger-fields > div { opacity: .45; transform: translateY(3px); transition: opacity .22s ease, transform .22s ease; }
+#bes-software .bes-ledger-fields > div.is-recognized { opacity: 1; transform: none; }
+#bes-software .bes-ledger-fields dt { font-size: 10px; color: var(--bes-muted); }
+#bes-software .bes-ledger-fields dd { margin: 0; font-size: 12px; font-weight: 600; line-height: 1.65; font-variant-numeric: tabular-nums; }
+#bes-software .bes-ledger-fields [data-ledger-value="amount"] { color: var(--bes-ledger-orange); font-size: 18px; line-height: 1.1; }
 #bes-software .bes-tool-preview { display: flex; align-items: center; gap: 15px; padding-top: 19px; color: var(--bes-product); }
 #bes-software .bes-tool-preview > svg.lucide { width: 35px; height: 35px; }
 #bes-software .bes-tool-preview strong { display: block; font-size: 16px; font-weight: 600; }
@@ -64,6 +80,7 @@ button:disabled { cursor: default; opacity: .65; }
 #bes-software .bes-topic { display: inline-flex; align-items: center; gap: 7px; color: var(--bes-product); }
 #bes-software .bes-work-index { color: var(--bes-muted); font-size: 11px; font-variant-numeric: tabular-nums; }
 #bes-software .bes-playground { background: var(--bes-tint); border-radius: max(4px, calc(var(--bes-radius) - 5px)); min-height: 180px; height: 180px; padding: 16px; display: flex; flex-direction: column; justify-content: space-between; }
+#bes-software .bes-ledger .bes-ledger-play { height: auto; gap: 10px; }
 #bes-software .bes-play-controls { display: flex; align-items: center; flex-wrap: wrap; gap: 6px 9px; justify-content: space-between; }
 #bes-software .bes-play-controls button { display: inline-flex; align-items: center; justify-content: center; gap: 5px; background: var(--bes-panel); border: 1px solid var(--bes-rule); border-radius: 6px; padding: 7px 8px; font-size: 11px; min-height: 32px; }
 #bes-software .bes-play-controls button:hover { color: var(--bes-product); }
@@ -79,6 +96,7 @@ button:disabled { cursor: default; opacity: .65; }
 #bes-software .bes-work-foot { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 4px; border-top: 1px solid var(--bes-rule); margin-top: 9px; padding-top: 7px; font-size: 11px; }
 #bes-software .bes-work-foot > span { color: var(--bes-muted); }
 #bes-software .bes-work-foot a { font-weight: 600; }
+#bes-software .bes-coming-soon { display: inline-flex; align-items: center; min-height: 36px; color: var(--bes-product); font-weight: 600; }
 #bes-software .bes-stage { height: 113px; position: relative; overflow: hidden; }
 #bes-software .bes-window-outline { position: absolute; inset: 1px 0 9px; border: 1px solid color-mix(in srgb, var(--bes-product) 24%, transparent); border-radius: 6px; padding: 0 7px; }
 #bes-software .bes-window-outline > span { display: inline-block; width: 4px; height: 4px; background: var(--bes-product); opacity: 0.45; border-radius: 50%; margin-right: 3px; }
@@ -214,5 +232,6 @@ button:disabled { cursor: default; opacity: .65; }
 @media (prefers-reduced-motion: reduce) {
   #bes-software .bes-character, #bes-software .bes-leg { animation: none !important; }
   #bes-software .bes-water { animation: none !important; }
+  #bes-software .bes-ledger-fields > div { transition: none; transform: none; }
 }
 #bes-software .bes-noscript { padding: 18px 0; font-size: 13px; line-height: 1.8; }

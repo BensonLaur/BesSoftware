@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="从热爱出发，做值得分享的软件。探索 Benson 的 BesLyric、Besktop、BesFuel、BesMapLab 与 BesTools，以及作品背后的创作故事。">
+  <meta name="description" content="从热爱出发，做值得分享的软件。探索 Benson 的 BesLyric、Besktop、BesFuel、BesMapLab、BesTools 与 BesLedger，以及作品背后的创作故事。">
   <meta name="theme-color" content="#f7f7f0" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#20251f" media="(prefers-color-scheme: dark)">
   <meta property="og:type" content="website">
@@ -109,6 +109,31 @@
           <div class="bes-work-title"><h3>BesTools</h3><span class="bes-platform">打开网页即可使用</span></div>
           <p class="bes-description">把常用的小事，做得顺手一点。</p>
           <div class="bes-work-foot"><span>个人顺手工具集</span><a href="https://bensonlaur.github.io/BesTools/" target="_blank" rel="noopener noreferrer">打开 BesTools <i data-lucide="arrow-up-right" aria-hidden="true"></i></a></div>
+        </article>
+
+        <article class="bes-work bes-ledger">
+          <div class="bes-work-top"><span class="bes-topic"><i data-lucide="notebook-pen" aria-hidden="true"></i> 给生活一本明白账</span><span class="bes-work-index">06</span></div>
+          <div class="bes-playground bes-ledger-play" data-ledger-state="sms">
+            <div class="bes-ledger-scene" id="bes-ledger-demo">
+              <div data-ledger-sms>
+                <div class="bes-ledger-caption"><span><i data-lucide="message-square" aria-hidden="true"></i> 一条交易短信</span><small>虚构示例</small></div>
+                <p class="bes-ledger-message">【示例银行】尾号 <b>1234</b> 储蓄卡于 <b>2026/10/23 08:15</b> 在晨光早餐消费 <strong>18.50 元</strong>，余额 981.50 元。</p>
+              </div>
+              <div data-ledger-bill hidden>
+                <div class="bes-ledger-caption"><span><i data-lucide="receipt" aria-hidden="true"></i> 支出账单</span><small>待核对</small></div>
+                <dl class="bes-ledger-fields">
+                  <div data-ledger-field="amount"><dt>金额</dt><dd data-ledger-value="amount">—</dd></div>
+                  <div data-ledger-field="category"><dt>分类 · 示例规则</dt><dd data-ledger-value="category">—</dd></div>
+                  <div data-ledger-field="account"><dt>账户</dt><dd data-ledger-value="account">—</dd></div>
+                  <div data-ledger-field="time"><dt>时间 · 2026 年</dt><dd data-ledger-value="time">—</dd></div>
+                </dl>
+              </div>
+            </div>
+            <div class="bes-play-controls"><button type="button" data-ledger-recognize aria-controls="bes-ledger-demo"><i data-lucide="scan" aria-hidden="true"></i> <span data-ledger-action>识别成账单</span></button><span class="bes-demo-note" data-ledger-status role="status" aria-live="polite" aria-atomic="true">虚构演示 · 不保存</span></div>
+          </div>
+          <div class="bes-work-title"><h3>BesLedger <small>Bes记账</small></h3><span class="bes-platform">Web / Android · 开发中</span></div>
+          <p class="bes-description">隔了几天的账，也能慢慢理清。正在打磨一本从短信补账开始的个人账本。</p>
+          <div class="bes-work-foot"><span>还在认真打磨</span><strong class="bes-coming-soon">敬请期待</strong></div>
         </article>
       </div>
       <p class="bes-gallery-note">这里是作品的小小体验与快捷入口，完整功能请进入各作品。</p>
