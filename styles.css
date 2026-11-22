@@ -96,6 +96,7 @@ button:disabled { cursor: default; opacity: .65; }
 #bes-software .bes-work-foot { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 4px; border-top: 1px solid var(--bes-rule); margin-top: 9px; padding-top: 7px; font-size: 11px; }
 #bes-software .bes-work-foot > span { color: var(--bes-muted); }
 #bes-software .bes-work-foot a { font-weight: 600; }
+#bes-software .bes-work-links { display: flex; flex-wrap: wrap; justify-content: flex-end; column-gap: 12px; margin-inline-start: auto; }
 #bes-software .bes-coming-soon { display: inline-flex; align-items: center; min-height: 36px; color: var(--bes-product); font-weight: 600; }
 #bes-software .bes-stage { height: 113px; position: relative; overflow: hidden; }
 #bes-software .bes-window-outline { position: absolute; inset: 1px 0 9px; border: 1px solid color-mix(in srgb, var(--bes-product) 24%, transparent); border-radius: 6px; padding: 0 7px; }
